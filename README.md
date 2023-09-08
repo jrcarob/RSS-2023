@@ -4,5 +4,7 @@ The Spanish total fertility rate has decreased to below replacement levels in th
 
 [Download the paper](https://doi.org/10.1371/journal.pone.0275492)
 
+Poster was done with [posterdown](https://github.com/brentthorne/posterdown)
+
 ![Poster](poster.png)
 
