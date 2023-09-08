@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<!--
+Font-awesome icons ie github or twitter
+-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css" integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
+
+<!--
+Google fonts api stuff
+-->
+
+
+
+<title>rss.knit</title>
+
+
+
+
+
+
+<style>
+@page {
+size: 46.8in 33.1in;
+margin: 0;
+padding: 0;
+}
+body {
+margin: 0;
+font-size: 45px;
+width: 46.8in;
+height: 33.1in;
+padding: 0;
+text-align: justify;
+font-family: Palatino;
+}
+.poster_wrap {
+width: 46.8in;
+height: 33.1in;
+padding: 0cm;
+}
+.title_container {
+width: 100%;
+height: 15%;
+overflow: hidden;
+background-color: #0b4545;
+border: 0 solid #0b4545
+;
+}
+.logo_left {
+float: left;
+width: 10%;
+height: 100%;
+background-color: #0b4545;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.logo_right {
+float: right;
+width: 10%;
+height: 100%;
+background-color: #0b4545;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.poster_title {
+text-align: center;
+position: relative;
+float: left;
+width: 80%;
+height: 100%;
+color: #FFFFFF;
+top: 50%;
+transform: translateY(-50%);
+-webkit-transform: translateY(-50%);
+}
+#title {
+font-family: Palatino;
+}
+/* unvisited link */
+a:link {
+color: #6d1d26;
+text-decoration: none;
+}
+.mybreak {
+  break-before: column;
+}
+/* visited link */
+a:visited {
+color: #6d1d26;
+text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+color: #6d1d26;
+text-decoration: none;
+}
+
+/* selected link */
+a:active {
+color: #6d1d26;
+text-decoration: none;
+}
+.poster_body {
+-webkit-column-count: 4; /* Chrome, Safari, Opera */
+-moz-column-count: 4; /* Firefox */
+column-count: 4;
+-webkit-column-fill: auto;
+-moz-column-fill: auto;
+column-fill: auto;
+-webkit-column-rule-width: 1mm;
+-moz-column-rule-width: 1mm;
+column-rule-width: 1mm;
+-webkit-column-rule-style: solid;
+-moz-column-rule-style: solid;
+column-rule-style: solid;
+-webkit-column-rule-color: #0b4545;
+-moz-column-rule-color: #0b4545;
+column-rule-color: #0b4545;
+column-gap: 1em;
+padding-left: 0.5em;
+padding-right: 0.5em;
+height: 100%;
+color: #000000
+background-color: #ffffff;
+}
+.poster_title h1 {
+font-size: 70pt;
+margin: 0;
+border: 0;
+font-weight: normal;
+}
+.poster_body_wrap{
+width: 46.8in;
+height: calc(100% - 15%);
+padding-top: calc(33.1in * 0.01);
+padding-bottom: calc(33.1in * 0.01);
+background-color: #ffffff;
+}
+.poster_title h3 {
+color: #ffffff;
+font-size: 50pt;
+margin: 0;
+border: 0;
+font-weight: normal;
+}
+.poster_title h3 > sup {
+  font-size: 35pt;
+  margin-left: 0.02em;
+}
+.poster_title h5 {
+color: #FFFFFF;
+font-size: 35pt;
+margin: 0;
+border: 0;
+font-weight: normal;
+}
+img {
+margin-top: 0;
+margin-bottom: 0;
+}
+.section {
+  padding: 0.2em;
+}
+.poster_body h1 {
+text-align: center;
+color: #FFFFFF;
+font-size: 65pt;
+border: 2mm solid #6d1d26;
+background-color: #6d1d26;
+border-radius: 4mm 0mm;
+margin-top: 2mm;
+margin-bottom: 2mm;
+font-weight: normal;
+}
+.poster_body h2 {
+color: #000000;
+font-size: 40pt;
+padding-left: 4mm;
+font-weight: normal;
+}
+.span {
+width: 200%;
+}
+/* center align leaflet map,
+from https://stackoverflow.com/questions/52112119/center-leaflet-in-a-rmarkdown-document */
+.html-widget {
+margin: auto;
+position: sticky;
+margin-top: 2cm;
+margin-bottom: 2cm;
+}
+.leaflet.html-widget.html-widget-static-bound.leaflet-container.leaflet-touch.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag.leaflet-touch-zoom {
+position: sticky;
+width: 100%;
+}
+pre.sourceCode.r, pre.sourceCode.python {
+background-color: #ffffff20;
+border: solid #008080 1mm;
+border-radius: 0.5em;
+padding: 4mm;
+margin: auto;
+margin-top: 1em;
+margin-bottom: 1em;
+/* align-items: center; */
+}
+div.sourceCode {
+background-color: transparent;
+width: 85%;
+margin-left: auto;
+margin-right: auto;
+}
+code.sourceCode.r, code.sourceCode.python {
+background-color: transparent;
+font-size: 20pt;
+border-radius: 2mm;
+}
+code {
+font-size: 25pt;
+font-family: monospace;
+background-color: #00808024;
+color: #008080;
+padding: 1.2mm;
+line-height: 1;
+border-radius: 2mm;
+}
+.caption {
+font-size: 20pt;
+}
+.table caption {
+font-size: 20pt;
+padding-bottom: 3mm;
+
+}
+code {
+font-size: 1em;
+font-family: monospace;
+background-color: #00808024;
+color: #0b4545;
+padding: 1.2mm;
+border-radius: 2mm;
+}
+.poster_title code {
+font-size: 1em;
+}
+table {
+font-size: 40px;
+margin: auto;
+border-top: 3px solid #666;
+border-bottom: 3px solid #666;
+}
+table thead th {
+border-bottom: 3px solid #ddd;
+}
+td {
+padding: 8px;
+}
+th {
+padding: 15px;
+}
+caption {
+margin-bottom: 10px;
+}
+.poster_body p {
+margin-right: 4mm;
+margin-left: 4mm;
+margin-top: 6mm;
+margin-bottom: 10mm;
+color: #000000
+}
+.poster_body ol {
+margin-right: 4mm;
+margin-left: 4mm;
+}
+#ul {
+margin-right: 4mm;
+margin-left: 4mm;
+}
+.references p {
+font-size: 20pt;
+}
+.orcid img {
+  width: 1em;
+}
+</style>
+</head>
+<body>
+
+
+<div class="poster_wrap">
+<div class="title_container">
+<!-- Left Logo  -->
+<div class="logo_left">
+<img src=ciencias.png style="width: 80%">
+</div>
+<!-- Poster Title -->
+<div class= "poster_title">
+<h1 id="title">Projecting Spanish Fertility at Regional Level. A Hierarchical Bayesian Approach
+<p style="margin :0;font-family:serif;font-style:italic;font-size:85px;">
+Royal Statistics Society, Harrowgate, UK, 4th-7th September
+</p></h1>
+<h3 id="author">J.R. Caro-Barrera<sup>1, <a class="orcid" href="https://orcid.org/0000-0001-6154-2493"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup>, M.B. García-Moreno García<sup>1, <a class="orcid" href="https://orcid.org/0000-0002-7981-8846"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup>, M. Pérez Priego<sup>1, <a class="orcid" href="https://orcid.org/0000-0003-0155-5510"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup></h3>
+<h5 id="affiliation"><sup>1</sup> Department of Statistics, Econometrics and Operational Research, University of Córdoba, Spain.</h5>
+</div>
+<!-- Right Logo  -->
+<div class="logo_right">
+<img src=ucologowhite.png style="width: 80%">
+</div>
+</div>
+
+<div class='poster_body_wrap'>
+<div class='poster_body'>
+<style type="text/css">
+.adjust-line-height {
+  line-height: 1em;
+}
+
+div.title_container{
+   background-color: #6d1d26;
+}
+
+div.logo_left{
+  background-color: #6d1d26;
+}
+
+div.logo_right{
+  background-color: #6d1d26;
+}
+
+div.sectitle_bgcol{
+  background-color: #6d1d26;
+}
+</style>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>The Spanish total fertility rate has decreased to below replacement levels in the last decades. The decline has persisted since the 1960s and is diverse across the country. Based on that diversity, the use of population forecasts, not only at national but at regional levels, for planning purposes (governments and private sector) with large horizons has become a must to provide essential services. Although this approach is already issued by the United Nations little research has been done focusing on the Spanish subnational level.</p>
+<div id="objectives" class="section level2">
+<h2><em>Objectives</em></h2>
+<ol style="list-style-type: decimal">
+<li>To disaggregate the national projections of the total fertility rate for Spain into regional forecasts.</li>
+<li>To project the Spanish TFR at a regional level by adopting the approach followed by the United Nations, 2018, using a Bayesian hierarchical model.</li>
+</ol>
+<div class="figure"><span style="display:block;" id="fig:spain"></span>
+<img src="fig1.png" alt="TFR in 2018 at municipality level" width="100%" />
+<p class="caption">
+Figure 1: TFR in 2018 at municipality level
+</p>
+</div>
+</div>
+</div>
+<div id="methodology" class="section level1">
+<h1>Methodology</h1>
+<p>The proposed Bayesian model for fertility projection is based on Sevcikova et. al (2011) and Alkema et. al (2011), therefore, ours is a derivation of the UN’s model to the sub-national level. In the model, a random walk with drift is used to project the TFR during the fertility transition, using a Bayesian hierarchical model to estimate the parameters of the drift term. The TFR is modelled with a first-order autoregressive process during the post-transition phase.</p>
+<p>It uses 5-year estimates of the TFR from 1950–1955 to 2005–2010 and is based on the observation that the evolution of the TFR includes three broad phases: <em>Phase I</em>: a pre-transitional high fertility phase; <em>Phase II</em>: the fertility transition in which the TFR declines from high fertility levels towards or below replacement fertility level and <em>Phase III</em>, a post-transition phase of low fertility, which includes the recovery from below-replacement fertility to replacement fertility and oscillations around fertility at that same level.</p>
+</div>
+<div id="results" class="section level1">
+<h1>Results</h1>
+<div id="fitting-and-projections-at-national-level" class="section level2">
+<h2><em>Fitting and projections at national level</em></h2>
+<p>The fit of the model simulation for Spain is quite accurate as the starting point puts the fertility rate at around 1.3 births per woman, similar to that provided by Eurostat which is 1.23 (<a href="https://ec.europa.eu/eurostat" class="uri">https://ec.europa.eu/eurostat</a>). In addition to this, the most interesting insight is the projections made by the model, which can be seen to be approaching the rate of 1.8 births per woman, a rate that is in line with the projections made by Osés-Arranz and Quilis (2018).</p>
+<div class="figure"><span style="display:block;" id="fig:tfrproj"></span>
+<img src="fig2.jpeg" alt=": Probabilistic projections of TFR. TFR projections: median, 80%, and 95% prediction intervals and high/low fertility variant" width="90%" />
+<p class="caption">
+Figure 2: : Probabilistic projections of TFR. TFR projections: median, 80%, and 95% prediction intervals and high/low fertility variant
+</p>
+</div>
+</div>
+<div id="fitting-and-projections-at-the-regional-level" class="section level2">
+<h2><em>Fitting and projections at the regional level</em></h2>
+<p>One of the main contributions of this work has been the fitting and projection of the TFR at the regional level. Although the projected trend in TFR is unequivocally upward in the long-term for all Spanish regions, the intensity and timing are not the same for all of them. There are regions which, on the one hand, showed greater precocity in the onset of the fertility decline in the past, so it is worth highlighting these peculiarities; on the other hand, it is not possible to speak of uniformity concerning the amount of the increase, since this is not homogeneous throughout the territory and, likewise, not all of them always coincide in the changes in the trend.</p>
+<div class="figure"><span style="display:block;" id="fig:projections"></span>
+<img src="fig4.png" alt=": Probabilistic projections of the TFR at the regional level" width="100%" />
+<p class="caption">
+Figure 3: : Probabilistic projections of the TFR at the regional level
+</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:boxplot"></span>
+<img src="fig3.png" alt=": TFR evolution from 1981 to 2018 by region" width="100%" />
+<p class="caption">
+Figure 4: : TFR evolution from 1981 to 2018 by region
+</p>
+</div>
+</div>
+</div>
+<div id="conclusions" class="section level1">
+<h1>Conclusions</h1>
+<p>In this study, TFR evolution and probabilistic projections for Spain have been implemented and analyzed. So, two effects play a crucial role in the Spanish fertility rate: migration and depopulation in addition to that, the lack of public aid, the loss of income for women after motherhood, the difficulty of reconciling working time and parental are among the worrying factors of the phenomenon (Lesthaeghe, 2020). It is a structural problem because demographic factors themselves are not strong enough to push fertility down, but an exogenous factor, industrialization, is needed to cause a profound change in the social, economic and cultural structures of a country and force the demographic system as a whole to adapt so that the demographic transition can begin.</p>
+<p>The probabilistic model we have used, adapted to the Spanish population and used to simulate projections tens of years ahead, is a very useful tool to measure and manage longevity risk. This is an important issue for those who wish to hedge longevity risk using published mortality rates, be they governments, pension plans, insurers or banks.</p>
+</div>
+<div id="main-references" class="section level1">
+<h1>Main References</h1>
+<p>United Nations (1983). Manual X: Indirect Techniques for Demographic Estimation. New York: United Nations. <em>Department of Economic and Social Affairs (Population Division).</em> Available at: <a href="http://www.un.org/en/development/desa/population/publications/manual/estimate/demographic-estimation.shtml.">http://www.un.org/</a></p>
+<p>Sevcikova, H., Alkema, L., Raftery, A.; BayesTFR: an R package for probabilistic projections of the total
+fertility rate. <em>Journal of Statistical Software</em>. 2011; Jul: 43(1). <a href="https://doi.org/10.18637/jss.v043.i01">https://doi.org/10.18637/jss.v043.i01</a></p>
+<p>Alkema, L., Raftery, A., Gerland, P., Clark, SJ., Pelletier, F., Buettner, T., Heilig, GK.; Probabilistic Projections of the Total Fertility Rate for All Countries. <em>Demography</em>, 1 August 2011; 48 (3): 815–839. <a href="doi:%20https://doi.org/10.1007/s13524-011-0040-5">doi: https://doi.org/10.1007/s13524-011-0040-5</a></p>
+<p>Osés-Arranz, A., Quilis, EM.; Introducing Uncertainty on Fertility and Survival in the Spanish Population
+Projections: A Monte Carlo Approach. (Working Paper) <em>Airef</em> DT/2018/5, 2018.</p>
+<p>Lesthaeghe R.; The second demographic transition, 1986–2020: sub-replacement fertility and rising
+cohabitation—a global update. <em>Genus</em>. 2020, 6, 10. <a href="https://doi.org/10.1186/s41118-020-00077-4">https://doi.org/10.1186/s41118-020-00077-4</a></p>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+</body>
+</html>
